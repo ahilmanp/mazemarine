@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TurnBackItem : MonoBehaviour {
+
+    public GameObject forPosition;
+    public GameObject positionPickUp;
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player1"))
+        {
+            //fogofwar.GetComponent<FogOfWarScript>().PowerUp("Player1");
+            forPosition.GetComponent<Player>().PositionItem("Player1");
+        }
+
+        if (other.CompareTag("Player2"))
+        {
+            //fogofwar.GetComponent<FogOfWarScript>().PowerUp("Player2");
+            forPosition.GetComponent<PlayerTwo>().PositionItem("Player2");
+        }
+        Destroy(positionPickUp);
+    }
+}
