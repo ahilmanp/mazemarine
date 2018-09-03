@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpeedItem : MonoBehaviour {
+
+    public GameObject forSpeed;
+    public GameObject speedPickUp;
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player1"))
+        {
+            //fogofwar.GetComponent<FogOfWarScript>().PowerUp("Player1");
+            forSpeed.GetComponent<Player>().SpeedUp("Player1");
+        }
+
+        if (other.CompareTag("Player2"))
+        {
+            //fogofwar.GetComponent<FogOfWarScript>().PowerUp("Player2");
+            forSpeed.GetComponent<PlayerTwo>().SpeedUp("Player2");
+        }
+        Destroy(speedPickUp);
+    }
+}
